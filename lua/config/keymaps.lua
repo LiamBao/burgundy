@@ -12,11 +12,19 @@ local opt = { noremap = true, silent = true }
 keymap.set("i", "jj", "<Esc>", opt)
 keymap.set("i", "<C-c>", "<C-o>o", opt)
 keymap.set("i", "<C-i>", "<C-o>A", opt)
+keymap.set("i", "<C-e>", "<End>", opt)
+keymap.set("i", "<C-h>", "<Bs>", opt)
+keymap.set("i", "<C-f>", "<right>", opt)
+keymap.set("i", "<C-b>", "<left>", opt)
+--
 --
 keymap.set("n", "gh", "^", opt)
 keymap.set("n", "gl", "$", opt)
+keymap.set("n", "fy", "<cmd>:let @+=expand('%:p')<CR>", opt)
+keymap.set("n", "fh", "<cmd>:let @+=expand('%:h')<CR>", opt)
 
 --Vertical Movement /Horizontal Movement /Word Movement
+-- Normal-mode commands
 -- Normal-mode commands
 keymap.set("n", "<A-k>", ":MoveLine(-1)<CR>", opt)
 keymap.set("n", "<A-j>", ":MoveLine(1)<CR>", opt)
@@ -33,7 +41,7 @@ keymap.set("v", "<A-l>", ":MoveHBlock(1)<CR>", opt)
 
 -- nvim-spectre
 keymap.set("n", "<leader>S", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-  desc = "Search on current file",
+    desc = "Search on current file",
 })
 -- keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
 --   desc = "Toggle Spectre",
@@ -44,3 +52,6 @@ keymap.set("n", "<leader>S", '<cmd>lua require("spectre").open_file_search({sele
 -- keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
 --   desc = "Search current word",
 -- })
+--
+--
+--TEST
